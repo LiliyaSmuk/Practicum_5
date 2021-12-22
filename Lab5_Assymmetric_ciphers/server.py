@@ -104,7 +104,6 @@ def bind(host_str):
 
 
 flag = True
-
 print('Сервер работает')
 port = bind('localhost')
 print('Порт> ', port)
@@ -114,6 +113,8 @@ print('Соединение')
 sock.listen(3)
 conn, addr = sock.accept()
 print('Клиент', addr[0][1], 'присоединился')
+
+
 try:
     with open('keys_s.txt', 'r') as f:
         for line in f:
@@ -125,6 +126,7 @@ except:
     msg = ''
     key_full_2 = generate(flagg, key_prim, key_publ_2)
 
+    
 if flag:
     port2(conn, key_full_2, port)
     sock.close()
@@ -135,5 +137,6 @@ if flag:
     while True:
         send_recv(conn, key_full_2)
 
+        
 sock.close()
 print('Остановвка сервера')
