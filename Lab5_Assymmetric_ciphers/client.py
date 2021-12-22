@@ -75,6 +75,7 @@ sock.setblocking(5)
 sock.connect(('localhost', 9090))
 print('Соединение')
 
+
 try:
     with open('keys_c.txt', 'r') as f:
         for line in f:
@@ -93,5 +94,7 @@ if flag:
     sock.connect(('localhost', 1024))
     while True:
         send_recv(sock, key_full_1)
+        
+        
 sock.close()
 print('Разрыв соединения')
